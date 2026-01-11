@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: gateway-service
-          image: rakshit435/demo:gateway-service-v2
+          image: rakshit435/demo:gateway-service-v3
           ports:
             - containerPort: 3000
           env:

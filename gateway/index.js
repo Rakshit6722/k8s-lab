@@ -15,12 +15,12 @@ app.use((req, res, next) => {
 });
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'OK', service: 'API Gateway' });
 });
 
 // Flow endpoint aggregates downstream info
-app.get('/flow', async (req, res) => {
+app.get('/api/flow', async (req, res) => {
   try {
     const [userInfo, projectInfo] = await Promise.all([
       axios.get('http://user-service:3001/info'),
@@ -42,7 +42,7 @@ app.get('/flow', async (req, res) => {
 });
 
 // Info endpoint
-app.get('/info', (req, res) => {
+app.get('/api/info', (req, res) => {
   res.status(200).json({
     service: 'API Gateway',
     pod: process.env.HOSTNAME || 'unknown',
