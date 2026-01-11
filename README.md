@@ -449,3 +449,26 @@ MIT
 
 **Created:** January 2026  
 **Demo Repository:** Kubernetes & Microservices Learning Lab
+
+## Progress Log
+
+### January 12, 2026 - Ingress Controller Setup
+
+**Configured Kubernetes Ingress:**
+- Set up NGINX Ingress Controller for routing external traffic
+- Created [`ingress.yaml`](k8s/ingress-controller/ingress.yaml) with path-based routing:
+  - `/` routes to `frontend-service:80` - React UI
+  - `/api` routes to `gateway-service:3000` - API Gateway
+- Used `Prefix` path type for flexible routing
+- Configured `ingressClassName: nginx` for proper controller selection
+
+**Port Forwarding:**
+- Successfully tested services using `kubectl port-forward`
+- Frontend accessible via `kubectl port-forward svc/frontend-service 8080:80`
+- Troubleshot port conflicts (8080 already in use)
+- Learned process management: `pkill -f "kubectl port-forward"` to clean up port-forward processes
+
+**Next Steps:**
+- Deploy Ingress Controller to cluster
+- Test external access through Ingress
+- Configure domain/host-based routing if needed
